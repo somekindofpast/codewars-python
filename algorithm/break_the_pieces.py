@@ -15,8 +15,10 @@ def break_pieces(shape: str):
         grid.append(list(line))
         if row_min_len <= len(grid[-1]):
             row_min_len = len(grid[-1])
-        else:
-            grid[-1].extend(list(' ' * (row_min_len - len(grid[-1]))))
+
+    for i in range(len(grid)):
+        if len(grid[i]) < row_min_len:
+            grid[i].extend(list(' ' * (row_min_len - len(grid[i]))))
 
     top_left_corners = []
     for i in range(len(grid)-1):
